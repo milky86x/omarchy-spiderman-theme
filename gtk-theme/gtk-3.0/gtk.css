@@ -1,0 +1,57 @@
+/* Spider-Man theme - GTK3 accent overlay.
+   Palette:
+   midnight navy   #0B1120  base background
+   slate blue      #1B2A44  surface (sidebar/header/panels)
+   crimson red     #E50914  primary accent
+   web white       #F5F7FF  secondary highlights
+   selection tint  #242F4D (semi-transparent) */
+
+@define-color theme_selected_bg_color #E50914;
+@define-color theme_selected_fg_color #ffffff;
+
+/* File chooser / Nautilus sidebar (deep slate blue surface) */
+.nautilus-window .sidebar,
+.nautilus-window .sidebar .view,
+.places-sidebar {
+  background-color: #1B2A44;
+  color: #F5F7FF;
+}
+
+.places-sidebar row:selected,
+.nautilus-window .sidebar row:selected {
+  background-color: rgba(36, 47, 77, 0.65);
+  color: #ffffff;
+}
+
+.places-sidebar row:hover:not(:selected) {
+  background-color: alpha(#E50914, 0.18);
+  color: #ffffff;
+}
+
+/* Selection in lists and trees (slate blue tint) */
+.view:selected,
+treeview.view:selected,
+.nautilus-desktop .view:selected {
+  background-color: rgba(36, 47, 77, 0.6);
+  color: #ffffff;
+}
+
+/* Header / toolbar (deep slate blue) */
+.nautilus-window headerbar,
+.nautilus-window .titlebar {
+  background-color: #1B2A44;
+  border-bottom: 1px solid #2A3B5C;
+  color: #F5F7FF;
+}
+
+.nautilus-window .path-bar button:checked {
+  background-color: #E50914;
+  color: #ffffff;
+}
+
+/* Rubber band */
+rubberband,
+.nautilus-window rubberband {
+  background-color: alpha(#E50914, 0.30);
+  border: 1px solid #E50914;
+}

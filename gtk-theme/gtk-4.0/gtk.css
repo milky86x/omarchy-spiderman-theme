@@ -1,0 +1,100 @@
+/* Spider-Man theme - GTK4 accent overlay for Nautilus and friends.
+   Palette:
+   midnight navy   #0B1120  base background
+   slate blue      #1B2A44  surface (sidebar/header/panels)
+   crimson red     #E50914  primary accent
+   web white       #F5F7FF  secondary highlights
+   selection tint  #242F4D (semi-transparent) */
+
+@define-color accent_color #E50914;
+@define-color accent_bg_color #E50914;
+@define-color accent_fg_color #ffffff;
+@define-color destructive_color #E50914;
+
+:root {
+  color-scheme: dark;
+}
+
+/* --- Window / grid background (midnight navy) --- */
+.nautilus-window {
+  background-color: #0B1120;
+}
+
+.nautilus-window .view {
+  background-color: #0B1120;
+  color: #F5F7FF;
+}
+
+/* --- Sidebar (deep slate blue surface) --- */
+.nautilus-window .sidebar,
+.nautilus-window .navigation-window {
+  background-color: #1B2A44;
+}
+
+.nautilus-window .sidebar .view,
+.nautilus-window .navigation-sidebar {
+  background-color: #1B2A44;
+  color: #F5F7FF;
+}
+
+/* Selected sidebar row -> semi-transparent slate blue tint */
+.nautilus-window .sidebar row:selected,
+.nautilus-window .navigation-sidebar row:selected {
+  background-color: rgba(36, 47, 77, 0.65);
+  color: #ffffff;
+  border-left: 3px solid #E50914;
+}
+
+/* Hovered sidebar row -> crimson tint */
+.nautilus-window .sidebar row:hover:not(:selected),
+.nautilus-window .navigation-sidebar row:hover:not(:selected) {
+  background-color: alpha(#E50914, 0.18);
+  color: #ffffff;
+}
+
+/* --- Toolbar / header (deep slate blue) --- */
+.nautilus-window headerbar,
+.nautilus-window .titlebar {
+  background-color: #1B2A44;
+  border-bottom: 1px solid #2A3B5C;
+}
+
+/* --- Search bar / path bar --- */
+.nautilus-window .path-bar button:checked,
+.nautilus-window .path-bar button:active {
+  background-color: #E50914;
+  color: #ffffff;
+  border-color: #E50914;
+}
+
+.nautilus-window .path-bar button:hover {
+  background-color: alpha(#E50914, 0.22);
+}
+
+/* --- Selection in the file grid / list (slate blue tint) --- */
+.nautilus-window .view:selected,
+.nautilus-window .view:selected:focus,
+.nautilus-window .listview row:selected,
+.nautilus-window .gridview child:selected,
+.nautilus-window .clapbar button:selected {
+  background-color: rgba(36, 47, 77, 0.6);
+  color: #ffffff;
+}
+
+/* Rubber-band / drag selection -> crimson */
+.nautilus-window rubberband,
+nautilus-list-view rubberband {
+  background-color: alpha(#E50914, 0.30);
+  border: 1px solid #E50914;
+}
+
+/* Hover tint for thumbnails -> crimson */
+.nautilus-window .gridview child:hover {
+  background-color: alpha(#E50914, 0.12);
+}
+
+/* --- Accent links / info (crimson, web-white text) --- */
+.nautilus-window label:link,
+.nautilus-window .empty-state label {
+  color: #E50914;
+}

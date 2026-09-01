@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Spider-Man theme - apply the theme's GTK accent overlay to Nautilus (GTK4)
+# and other GTK apps (GTK3). Install with:
+#   omarchy hook install theme-set gtk-theme.hook
+# Runs on every `omarchy theme set`. If the active theme ships a gtk-theme/
+# directory, its gtk.css files are copied into ~/.config/gtk-4.0 and
+# ~/.config/gtk-3.0 (creating them if needed); otherwise any Spider-Man overlay
+# left behind is removed so GTK falls back to Adwaita defaults.
+
+THEME_DIR="$HOME/.local/state/omarchy/current/theme"
+SRC4="$THEME_DIR/gtk-theme/gtk-4.0/gtk.css"
+SRC3="$THEME_DIR/gtk-theme/gtk-3.0/gtk.css"
+DEST4="$HOME/.config/gtk-4.0"
+DEST3="$HOME/.config/gtk-3.0"
+
+install_css() {
+  local src="$1" dest_dir="$2"
+  if [[ -f $src ]]; then
+    mkdir -p "$dest_dir"
+    cp "$src" "$dest_dir/gtk.css"
+  else
+    rm -f "$dest_dir/gtk.css"
+  fi
+}
+
+install_css "$SRC4" "$DEST4"
+install_css "$SRC3" "$DEST3"
+
+# Ask Nautilus to re-read its theme (harmless if it is not running).
+command -v nautilus >/dev/null 2>&1 && nautilus -q >/dev/null 2>&1
+
+exit 0
