@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # Spider-Man theme - apply the theme's GTK accent overlay to Nautilus (GTK4)
-# and other GTK apps (GTK3). Install with:
+# and other GTK apps (GTK3), and manage the fastfetch logo. Install with:
 #   omarchy hook install theme-set gtk-theme.hook
 # Runs on every `omarchy theme set`. If the active theme ships a gtk-theme/
 # directory, its gtk.css files are copied into ~/.config/gtk-4.0 and
 # ~/.config/gtk-3.0 (creating them if needed); otherwise any Spider-Man overlay
-# left behind is removed so GTK falls back to Adwaita defaults.
+# left behind is removed so GTK falls back to Adwaita defaults. If the active
+# theme ships an about.txt it becomes the fastfetch logo; otherwise the stock
+# Omarchy symbol logo is installed so only the Spider-Man theme changes fastfetch
+# branding.
 
 THEME_DIR="$HOME/.local/state/omarchy/current/theme"
 SRC4="$THEME_DIR/gtk-theme/gtk-4.0/gtk.css"
@@ -26,6 +29,17 @@ install_css() {
 
 install_css "$SRC4" "$DEST4"
 install_css "$SRC3" "$DEST3"
+
+# Install the theme's fastfetch logo (about.txt) if the active theme ships one;
+# otherwise fall back to the stock Omarchy symbol logo so only the Spider-Man
+# theme changes fastfetch branding.
+BRANDING_DIR="$HOME/.config/omarchy/branding"
+mkdir -p "$BRANDING_DIR"
+if [[ -f $THEME_DIR/about.txt ]]; then
+  cp "$THEME_DIR/about.txt" "$BRANDING_DIR/about.txt"
+else
+  cp /usr/share/omarchy/icon.txt "$BRANDING_DIR/about.txt"
+fi
 
 # Ask Nautilus to re-read its theme (harmless if it is not running).
 command -v nautilus >/dev/null 2>&1 && nautilus -q >/dev/null 2>&1

@@ -49,6 +49,18 @@ ships no GTK overlay removes it and falls back to Adwaita defaults. Reopen
 Nautilus to see the change. You can uninstall the hook with
 `omarchy hook uninstall theme-set gtk-theme.hook`.
 
+### Fastfetch logo
+
+The same hook also manages the `fastfetch` logo (`~/.config/omarchy/branding/
+about.txt`) so it is theme-specific:
+
+- While the **Spider-Man** theme is active, fastfetch shows this theme's custom
+  logo (`about.txt`).
+- Switching to any other theme installs the stock Omarchy symbol logo, so your
+  custom logo only ever appears with this theme.
+
+Reopen the About panel / `fastfetch` after switching themes to see it.
+
 ## What's included
 
 | Item | File |
@@ -63,7 +75,8 @@ Nautilus to see the change. You can uninstall the hook with
 | Lock screen art | `unlock.png`, `preview-unlock.png` |
 | Wallpapers | `backgrounds/` |
 | Nautilus / GTK3+GTK4 overlay | `gtk-theme/` |
-| Theme-set hook (GTK + icons) | `hooks/theme-set.d/gtk-theme.hook` |
+| Theme-set hook (GTK + icons + fastfetch logo) | `hooks/theme-set.d/gtk-theme.hook` |
+| Fastfetch logo | `about.txt` |
 | Theme preview (picker) | `preview.png` |
 | Gallery screenshot | `gallery.png` |
 
