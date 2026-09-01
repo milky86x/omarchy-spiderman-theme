@@ -6,16 +6,20 @@
 # Runs on every `omarchy theme set`. If the active theme ships a gtk-theme/
 # directory, its gtk.css files are copied into ~/.config/gtk-4.0 and
 # ~/.config/gtk-3.0 (creating them if needed); otherwise any Spider-Man overlay
-# left behind is removed so GTK falls back to Adwaita defaults. If the active
-# theme ships an about.txt it becomes the fastfetch logo; otherwise the stock
-# Omarchy symbol logo is installed so only the Spider-Man theme changes fastfetch
-# branding.
+# left behind is removed so GTK falls back to Adwaita defaults.
+#
+# If the active theme ships an about.txt it becomes the fastfetch logo;
+# otherwise the stock Omarchy symbol logo is installed. If the theme also ships
+# an about.color, the fastfetch logo is tinted with that color. Themes with no
+# custom logo/color always get the stock symbol in the stock color, so no
+# theme's logo or color ever leaks into another.
 
 THEME_DIR="$HOME/.local/state/omarchy/current/theme"
 SRC4="$THEME_DIR/gtk-theme/gtk-4.0/gtk.css"
 SRC3="$THEME_DIR/gtk-theme/gtk-3.0/gtk.css"
 DEST4="$HOME/.config/gtk-4.0"
 DEST3="$HOME/.config/gtk-3.0"
+FASTFETCH_CFG="$HOME/.config/fastfetch/config.jsonc"
 
 install_css() {
   local src="$1" dest_dir="$2"
@@ -30,15 +34,31 @@ install_css() {
 install_css "$SRC4" "$DEST4"
 install_css "$SRC3" "$DEST3"
 
-# Install the theme's fastfetch logo (about.txt) if the active theme ships one;
-# otherwise fall back to the stock Omarchy symbol logo so only the Spider-Man
-# theme changes fastfetch branding.
+# Install the theme's fastfetch logo and its color (about.txt / about.color).
+# When the active theme ships neither its own logo nor a color, fall back to
+# the stock Omarchy symbol logo tinted with the stock default color ("green"),
+# so a custom logo/color never leaks into other themes.
 BRANDING_DIR="$HOME/.config/omarchy/branding"
 mkdir -p "$BRANDING_DIR"
+LOGO_COLOR=""
 if [[ -f $THEME_DIR/about.txt ]]; then
   cp "$THEME_DIR/about.txt" "$BRANDING_DIR/about.txt"
+  [[ -f $THEME_DIR/about.color ]] && LOGO_COLOR="$(cat "$THEME_DIR/about.color")"
 else
   cp /usr/share/omarchy/icon.txt "$BRANDING_DIR/about.txt"
+fi
+
+# Always set the fastfetch logo color: the theme's color when one is provided,
+# otherwise the stock default so no color carries over between themes.
+[[ -z $LOGO_COLOR ]] && LOGO_COLOR="green"
+if [[ -f $FASTFETCH_CFG && -w $FASTFETCH_CFG ]]; then
+  cp "$FASTFETCH_CFG" "$FASTFETCH_CFG.omarchy-bak"
+  awk -v c="$LOGO_COLOR" '
+    /"color":/ { seen=1 }
+    seen && /"1":/ { sub(/"1":\s*"[^"]*"/, "\"1\": \"" c "\""); seen=0 }
+    { print }
+  ' "$FASTFETCH_CFG" > "$FASTFETCH_CFG.tmp" && mv "$FASTFETCH_CFG.tmp" "$FASTFETCH_CFG"
+  rm -f "$FASTFETCH_CFG.omarchy-bak"
 fi
 
 # Ask Nautilus to re-read its theme (harmless if it is not running).
