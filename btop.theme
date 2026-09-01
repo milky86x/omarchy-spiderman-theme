@@ -1,93 +1,93 @@
 # Main background, empty for terminal default, need to be empty if you want transparent background
-theme[main_bg]="#0d0d16"
+theme[main_bg]="#0B1120"
 
 # Main text color
-theme[main_fg]="#eceff4"
+theme[main_fg]="#F5F7FF"
 
 # Title color for boxes
-theme[title]="#e23636"
+theme[title]="#E50914"
 
 # Highlight color for keyboard shortcuts
-theme[hi_fg]="#ef5350"
+theme[hi_fg]="#FF2D39"
 
 # Background color of selected item in processes box
-theme[selected_bg]="#2b2b3a"
+theme[selected_bg]="#1B2A44"
 
 # Foreground color of selected item in processes box
-theme[selected_fg]="#e23636"
+theme[selected_fg]="#E50914"
 
 # Color of inactive/disabled text
-theme[inactive_fg]="#5c5c70"
+theme[inactive_fg]="#4A5678"
 
 # Color of text appearing on top of graphs, i.e uptime and current network graph scaling
-theme[graph_text]="#c8ccd6"
+theme[graph_text]="#C8D1E8"
 
 # Background color of the percentage meters
-theme[meter_bg]="#2b2b3a"
+theme[meter_bg]="#1B2A44"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
-theme[proc_misc]="#c8ccd6"
+theme[proc_misc]="#C8D1E8"
 
 # CPU, Memory, Network, Proc box outline colors
-theme[cpu_box]="#1f3a93"
-theme[mem_box]="#5bc8f0"
-theme[net_box]="#e23636"
-theme[proc_box]="#e23636"
+theme[cpu_box]="#3D5A9E"
+theme[mem_box]="#5BC8F0"
+theme[net_box]="#E50914"
+theme[proc_box]="#E50914"
 
 # Box divider line and small boxes line color
-theme[div_line]="#5c5c70"
+theme[div_line]="#4A5678"
 
 # Temperature graph color (Green -> Yellow -> Red)
-theme[temp_start]="#7dbf46"
-theme[temp_mid]="#f0c674"
-theme[temp_end]="#e23636"
+theme[temp_start]="#7DBF46"
+theme[temp_mid]="#F0C674"
+theme[temp_end]="#E50914"
 
 # CPU graph colors (Red -> Blue -> Magenta)
-theme[cpu_start]="#e23636"
-theme[cpu_mid]="#1f3a93"
-theme[cpu_end]="#4b6cc4"
+theme[cpu_start]="#E50914"
+theme[cpu_mid]="#3D5A9E"
+theme[cpu_end]="#5E83CE"
 
 # Mem/Disk free meter
-theme[free_start]="#1f3a93"
-theme[free_mid]="#4b6cc4"
-theme[free_end]="#5bc8f0"
+theme[free_start]="#3D5A9E"
+theme[free_mid]="#5E83CE"
+theme[free_end]="#5BC8F0"
 
 # Mem/Disk cached meter
-theme[cached_start]="#e23636"
-theme[cached_mid]="#d75f00"
-theme[cached_end]="#f0c674"
+theme[cached_start]="#E50914"
+theme[cached_mid]="#E05A2A"
+theme[cached_end]="#F0C674"
 
 # Mem/Disk available meter
-theme[available_start]="#7dbf46"
-theme[available_mid]="#5bc8f0"
-theme[available_end]="#4b6cc4"
+theme[available_start]="#7DBF46"
+theme[available_mid]="#5BC8F0"
+theme[available_end]="#5E83CE"
 
 # Mem/Disk used meter (Blue -> Cyan -> Red)
-theme[used_start]="#1f3a93"
-theme[used_mid]="#5bc8f0"
-theme[used_end]="#e23636"
+theme[used_start]="#3D5A9E"
+theme[used_mid]="#5BC8F0"
+theme[used_end]="#E50914"
 
 # Download graph colors
-theme[download_start]="#1f3a93"
-theme[download_mid]="#4b6cc4"
-theme[download_end]="#5bc8f0"
+theme[download_start]="#3D5A9E"
+theme[download_mid]="#5E83CE"
+theme[download_end]="#5BC8F0"
 
 # Upload graph colors (Red -> Blue -> Magenta)
-theme[upload_start]="#e23636"
-theme[upload_mid]="#1f3a93"
-theme[upload_end]="#4b6cc4"
+theme[upload_start]="#E50914"
+theme[upload_mid]="#3D5A9E"
+theme[upload_end]="#5E83CE"
 
 # Process box color gradient for threads, mem and cpu usage
-theme[process_start]="#e23636"
-theme[process_mid]="#1f3a93"
-theme[process_end]="#4b6cc4"
+theme[process_start]="#E50914"
+theme[process_mid]="#3D5A9E"
+theme[process_end]="#5E83CE"
 
 # Graph gradient colors (spectrum shades from background to foreground)
-theme[gradient_color_0]="#0d0d16"
-theme[gradient_color_1]="#23232f"
-theme[gradient_color_2]="#2b2b3a"
-theme[gradient_color_3]="#5c5c70"
-theme[gradient_color_4]="#1f3a93"
-theme[gradient_color_5]="#e23636"
-theme[gradient_color_6]="#c8ccd6"
-theme[gradient_color_7]="#ffffff"
+theme[gradient_color_0]="#0B1120"
+theme[gradient_color_1]="#080D1A"
+theme[gradient_color_2]="#1B2A44"
+theme[gradient_color_3]="#4A5678"
+theme[gradient_color_4]="#3D5A9E"
+theme[gradient_color_5]="#E50914"
+theme[gradient_color_6]="#C8D1E8"
+theme[gradient_color_7]="#FFFFFF"

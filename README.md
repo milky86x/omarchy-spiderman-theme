@@ -14,7 +14,7 @@ overlay, red folder icons, a btop system monitor theme, and Neovim colorscheme.
 Requires Omarchy with Hyprland.
 
 ```bash
-omarchy theme install https://github.com/<your-user>/omarchy-spiderman-theme.git
+omarchy theme install https://github.com/milky86x/omarchy-spiderman-theme.git
 ```
 
 This sets the theme and applies wallpapers, lock screen, colors, terminal,
@@ -38,14 +38,18 @@ The GTK overlay that recolors Nautilus and other GTK apps is applied by a
 `theme-set` hook. Once per machine, install the hook bundled in this repo:
 
 ```bash
-omarchy hook install theme-set <path-to>/hooks/theme-set.d/gtk-theme.hook
+omarchy hook install theme-set gtk-theme.hook
 omarchy theme set spiderman
 ```
+
+(`gtk-theme.hook` lives at `hooks/theme-set.d/gtk-theme.hook` in the
+repository. If `omarchy hook install` prompts for a path, point it there.)
 
 The hook copies the theme's `gtk-theme/` CSS into `~/.config/gtk-4.0/` and
 `~/.config/gtk-3.0/` every time a theme is applied. Switching to a theme that
 ships no GTK overlay removes it and falls back to Adwaita defaults. Reopen
-Nautilus to see the change.
+Nautilus to see the change. You can uninstall the hook with
+`omarchy hook uninstall theme-set gtk-theme.hook`.
 
 ## What's included
 
@@ -54,7 +58,7 @@ Nautilus to see the change.
 | Color palette (dark) | `colors.toml` |
 | Icon theme (spidey red folders) | `icons.theme` + `icon-theme/Spider-Man-Red/` |
 | Neovim colorscheme (aether) | `neovim.lua` *(regenerated from `colors.toml` on install)* |
-| VS Code theme | `vscode.json` |
+| Chromium/Chrome/Edge/Brave color | `chromium.theme` |
 | Bar accent | `shell.bar.toml` |
 | Launcher + menu colors | `shell.launcher.toml`, `shell.menu.toml` |
 | btop system monitor theme | `btop.theme` |

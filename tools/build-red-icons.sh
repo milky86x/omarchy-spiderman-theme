@@ -1,10 +1,10 @@
 #!/bin/bash
 # Build the Spider-Man-Red icon theme inside the spiderman theme repo.
-# Recolors every Yaru-red-dark place/folder icon to Spider-Man red #e23636,
+# Recolors every Yaru-red-dark place/folder icon to Spider-Man red #E50914,
 # preserving luminance shading. Everything else inherits from Yaru-dark.
 set -euo pipefail
 
-REPO="/home/milky86x/Work/omarchy-spiderman-theme"
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DST="$REPO/icon-theme/Spider-Man-Red"
 SRC="/usr/share/icons/Yaru-red-dark"
 RED="#E50914"
