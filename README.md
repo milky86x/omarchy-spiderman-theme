@@ -1,9 +1,9 @@
 # Spider-Man Omarchy Theme
 
 A dark Spider-Man theme for [Omarchy](https://omarchy.org/) — crimson spidey
-red accents, deep midnight navy backgrounds, and a slate-blue secondary palette.
-Includes matching wallpapers, lock screen, terminal, a custom Nautilus/GTK
-overlay, red folder icons, a btop system monitor theme, and Neovim colorscheme.
+red accents, deep night backgrounds, and a slate secondary palette. Includes
+matching wallpapers, lock screen, terminal, a custom Nautilus/GTK overlay,
+red folder icons, a btop system monitor theme, and a Neovim colorscheme.
 
 ![Theme preview](preview.png)
 
@@ -22,17 +22,15 @@ bar, btop theme, and shell launcher/menu colors.
 
 ### Icon theme (red folders)
 
-The theme ships a custom icon theme with spidey-red folder icons. After
-installing the theme, copy the icon theme into your user icons directory and
-set it:
+The file manager uses the `Yaru-red` icon theme (red folders), set via
+`icons.theme`. Omarchy applies it automatically when the theme is activated;
+if you have already installed the theme, re-apply it to pick it up:
 
 ```bash
-cp -r ~/.config/omarchy/themes/spiderman/icon-theme/Spider-Man-Red ~/.local/share/icons/
-gtk-update-icon-cache -q ~/.local/share/icons/Spider-Man-Red
-gsettings set org.gnome.desktop.interface icon-theme 'Spider-Man-Red'
+omarchy theme set spiderman
 ```
 
-### Nautilus / GTK accent theme (optional extra)
+### Nautilus / GTK accent theme
 
 The GTK overlay that recolors Nautilus and other GTK apps is applied by a
 `theme-set` hook. Once per machine, install the hook bundled in this repo:
@@ -56,7 +54,7 @@ Nautilus to see the change. You can uninstall the hook with
 | Item | File |
 |------|------|
 | Color palette (dark) | `colors.toml` |
-| Icon theme (spidey red folders) | `icons.theme` + `icon-theme/Spider-Man-Red/` |
+| Icon theme (red folders) | `icons.theme` (`Yaru-red`) |
 | Neovim colorscheme (aether) | `neovim.lua` *(regenerated from `colors.toml` on install)* |
 | Chromium/Chrome/Edge/Brave color | `chromium.theme` |
 | Bar accent | `shell.bar.toml` |
@@ -73,12 +71,12 @@ Nautilus to see the change. You can uninstall the hook with
 
 | Role | Color |
 |------|-------|
-| Crimson spidey red (accent) | `#E50914` |
-| Midnight navy (background) | `#0B1120` |
-| Deep slate blue (surface) | `#1B2A44` |
-| Slate blue (selection) | `#242F4D` |
-| Web white (foreground) | `#F5F7FF` |
-| Spider blue | `#3D5A9E` |
+| Spider red (accent) | `#E62429` |
+| Deep night (background) | `#12131C` |
+| Surface (sidebar/header) | `#181A26` |
+| Darker background | `#0D0E14`, `#08080C` |
+| Web white (foreground) | `#E1E1E6` |
+| Muted text | `#44475A` |
 
 ## Background credits
 

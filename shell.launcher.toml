@@ -1,13 +1,13 @@
 [launcher]
-background                = "#0B1120"
+background                = "#12131C"
 background-alpha          = 0.95
-text                      = "#4b6cc4"
-border                    = "#E50914"
+text                      = "#6272A4"
+border                    = "#E62429"
 border-alpha              = 1.0
-scrim                     = "#0B1120"
+scrim                     = "#12131C"
 scrim-alpha               = 0.5
-selected-background       = "#F5F7FF"
+selected-background       = "#E1E1E6"
 selected-background-alpha = 0.08
-selected-text             = "#E50914"
-selected-border           = "#E50914"
+selected-text             = "#E62429"
+selected-border           = "#E62429"
 selected-border-alpha     = 0.25
