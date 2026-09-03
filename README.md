@@ -7,7 +7,7 @@ red folder icons, a btop system monitor theme, and a Neovim colorscheme.
 
 ![Theme preview](preview.png)
 
-![Theme gallery](gallery.png)
+![Theme gallery](preview2.png)
 
 ## Install
 
